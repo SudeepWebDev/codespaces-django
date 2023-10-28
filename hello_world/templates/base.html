@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atma Ram Sanatan Dharma College</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'main.css'%}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% block headScript %}
+    {% endblock %}
+    <!-- Include your CSS and JavaScript files here -->
+</head>
+
+<body>
+    <header>
+        <nav class="bg-white shadow-md">
+            <div class="container mx-auto flex justify-between items-center">
+                <a class="navbar-brand flex items-center" href="#">
+                    <img src="https://raw.githubusercontent.com/SudeepWebDev/collegetimetable/5b3a0c5fce071a47804afc62a513185da8cc2861/timetable/static/images/logo.png"
+                        alt="Logo" class="w-12">
+                    <span class="ml-2  text-lg font-bold font-semibold text-blue-800">ARSD Start Foundation</span>
+                </a>
+
+                <!-- Navbar Links -->
+                <div class="hidden" id="navbarNav">
+                    <ul
+                        class="navbar-nav z-[2] flex-column w-2/5  fixed right-0 top-0 h-full p-4 bg-white shadow-lg text-left cursor-pointer">
+                        <li class="mb-2 hover:bg-blue-100 p-2">
+                            <a href="#" class="text-blue-600 hover:underline  transition duration-300 rounded">Home</a>
+                        </li>
+                        <hr class=" border-t border-gray-200">
+                        <li class="mb-2 hover:bg-blue-100 p-2">
+                            <a href="#" class="text-blue-600 hover:underline  transition duration-300 rounded">About</a>
+                        </li>
+                        <hr class=" border-t border-gray-200">
+                        <li class="mb-2 hover:bg-blue-100 p-2">
+                            <a href="#"
+                                class="text-blue-600 hover:underline  transition duration-300 rounded">Engage</a>
+                        </li>
+                        <hr class=" border-t border-gray-200">
+                        <li class="mb-2 hover:bg-blue-100 p-2">
+                            <a href="#"
+                                class="text-blue-600 hover:underline  transition duration-300 rounded">Events</a>
+                        </li>
+                        <hr class=" border-t border-gray-200">
+                        <li class="mb-2 hover:bg-blue-100 p-2">
+                            <a href="#" class="text-blue-600 hover:underline  transition duration-300 rounded">Job</a>
+                        </li>
+                        <hr class=" border-t border-gray-200">
+                        <li class="mb-2 hover:bg-blue-100 p-2">
+                            <a href="#" class="text-blue-600 hover:underline  transition duration-300 rounded">Contact
+                                Us</a>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <!-- Navbar Toggler Button -->
+                <button class="inline-block ml-4 p-2 z-[3] relative" id="menuToggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor" id="menu-btn-3line">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 hidden" viewBox="0 0 24 24"
+                        stroke="currentColor" id="menu-btn-xmark">
+                        <path stroke-linecap="round " stroke-linejoin="round " stroke-width="2"
+                            d="M4 18L18 4M4 4l14 14">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+        <script>
+            const toggleButton = document.getElementById('menuToggle');
+            const navMenu = document.getElementById('navbarNav');
+            const menu_btn_3line = document.getElementById('menu-btn-3line');
+            const menu_btn_xmark = document.getElementById('menu-btn-xmark');
+
+            toggleButton.addEventListener('click', function () {
+                if (navMenu.classList.contains('hidden')) {
+                    navMenu.classList.remove('hidden');
+                    menu_btn_3line.classList.add('hidden');
+                    menu_btn_xmark.classList.remove('hidden');
+                } else {
+                    navMenu.classList.add('hidden');
+                    menu_btn_xmark.classList.add('hidden');
+                    menu_btn_3line.classList.remove('hidden');
+
+                }
+            });
+        </script>
+    </header>
+
+    <main>
+        {% block content %}
+        <!-- Page-specific content goes here -->
+        {% endblock %}
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="max-w-5xl mx-auto flex flex-col items-center justify-center">
+            <!-- Contact Information -->
+            <div class="text-center mb-4">
+                <p class="text-2xl font-semibold">Contact Us</p>
+                <p>ARSD Start Foundation</p>
+                <p>Atma Ram Sanatan Dharma College</p>
+                <p>Dhaula Kuan, New Delhi</p>
+                <p>Email: <a href="mailto:arsd@arsd.edu" class="text-blue-400">arsd@arsd.edu</a></p>
+            </div>
+            <!-- ARSD Start Foundation Logo -->
+            <img src="https://raw.githubusercontent.com/SudeepWebDev/collegetimetable/5b3a0c5fce071a47804afc62a513185da8cc2861/timetable/static/images/logo.png" alt="ARSD Start Foundation" class="w-20 h-20 mb-2">
+            <!-- Copyright Text -->
+            <p class="text-sm">&copy; 2023 ARSD Start Foundation. All rights reserved.</p>
+        </div>
+
+    </footer>
+    {% block script %}
+
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'main.js'%}">
+</body>
+
+</html>
